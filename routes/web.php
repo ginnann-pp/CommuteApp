@@ -34,7 +34,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/record/create', [CommuteRecordsController::class, 'create_record'])
     ->name('record.create');
-
+    Route::delete('/record/{commuteRecord}/destroy', [CommuteRecordsController::class, 'destroy_record'])
+    ->name('record.destroy');
 
 });
 
