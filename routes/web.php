@@ -31,11 +31,16 @@ Route::middleware('auth')->group(function () {
     // 編集ルート
     Route::get('/record/add-record', [CommuteRecordsController::class, 'add_record'])
     ->name('record.add-record');
-
     Route::post('/record/create', [CommuteRecordsController::class, 'create_record'])
     ->name('record.create');
     Route::delete('/record/{commuteRecord}/destroy', [CommuteRecordsController::class, 'destroy_record'])
     ->name('record.destroy');
+
+    // マイルート設定
+    Route::get('/record/add-myroot', [CommuteRecordsController::class, 'add_myroot'])
+    ->name('record.add-myroot');
+    Route::get('/record/create-myroot', [CommuteRecordsController::class, 'create_myroot'])
+    ->name('record.create-myroot');
 
 });
 

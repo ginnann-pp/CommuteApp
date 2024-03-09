@@ -10,6 +10,11 @@
                         新規投稿
                     </a>
                 </button>
+                <button class=" bg-blue-600 hover:bg-blue-500 text-white text-sl rounded px-4 py-2">
+                    <a href="{{ route('record.add-myroot') }}">
+                        マイルート登録
+                    </a>
+                </button>
             </div>
         </div>
     </x-slot>
