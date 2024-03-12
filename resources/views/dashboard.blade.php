@@ -38,11 +38,16 @@
             @endphp
             <p><span class="font-bold">DiffTime:</span> {{ "時間: $hours 分 $minutes 秒 $seconds" }}</p>
 
-            <form  action="{{ route('record.destroy', $commuteRecord) }}" class="flex justify-end" method="POST">
-                @method('DELETE')
-                @csrf
-                <button class=" bg-red-600 hover:bg-red-500 text-white text-sl rounded px-4 py-2 ">消去</button>
-            </form>
+            <div class="flex justify-end">
+                <button class=" bg-cyan-600 hover:bg-cyan-500 text-white text-sl rounded px-4 py-2 mr-2">
+                    <a href="{{ route('record.edit-record', $commuteRecord) }}"> 編集 </a>
+                </button>
+                <form  action="{{ route('record.destroy', $commuteRecord) }}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button class=" bg-red-600 hover:bg-red-500 text-white text-sl rounded px-4 py-2 ">消去</button>
+                </form>
+            </div>
         </div>
     </div>
     @endforeach

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommuteRecordsController;
+use App\Http\Controllers\MyRootController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,10 +37,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/record/{commuteRecord}/destroy', [CommuteRecordsController::class, 'destroy_record'])
     ->name('record.destroy');
 
+    Route::get('/record/{commuteRecord}/edit-record', [CommuteRecordsController::class, 'edit'])
+    ->name('record.edit-record');
+    Route::patch('/record/{commuteRecord}/update-record', [CommuteRecordsController::class, 'update_record'])
+    ->name('record.update-record');
+
+
     // マイルート設定
-    Route::get('/record/add-myroot', [CommuteRecordsController::class, 'add_myroot'])
+    Route::get('/record/add-myroot', [MyRootController::class, 'add_myroot'])
     ->name('record.add-myroot');
-    Route::get('/record/create-myroot', [CommuteRecordsController::class, 'create_myroot'])
+    Route::post('/record/create-myroot', [MyRootController::class, 'create_myroot'])
     ->name('record.create-myroot');
 
 });
