@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
     // マイルート設定
     Route::get('/record/add-myroot', [MyRootController::class, 'add_myroot'])
     ->name('record.add-myroot');
-    Route::post('/record/create-myroot', [MyRootController::class, 'create_myroot'])
+    Route::post('/record/create-myroot', [MyRootController::class, 'createOrUpdate_myroot'])
     ->name('record.create-myroot');
 
 });
