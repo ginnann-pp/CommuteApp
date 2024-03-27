@@ -39,10 +39,9 @@
             {{--グラフ--}}
             <div class="py-1 max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white shadow-md rounded-lg p-6 mb-6  max-w-7xl">
-                    <x-trend/>
+                    <x-trend :records="$records"/>
                 </div>
             </div>
-
             {{--  --}}
 
             @foreach ($records as $commuteRecord)
