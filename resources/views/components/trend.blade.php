@@ -5,17 +5,58 @@
 const lineCtx = document.getElementById('myLineChart').getContext('2d');
 
 
+// このデーターを渡したい
 let test =@json($records);
-console.log(test[0].diff_time);
+// ↓の代わりに↑のデータを最終的には挿入
+function getPastSevenDays() {
+    let DateArray = [];
+    for (let i = 0; i < 7; i++) {
+        let currentDate = new Date();
+        currentDate.setDate(currentDate.getDate() - i);
+        let month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        let day = String(currentDate.getDate()).padStart(2, '0');
+        let formattedDate = month + '/' + day;
+        DateArray.unshift(formattedDate);
+    }
+    return DateArray;
+}
+
+// 過去7日間の日付を取得
+let pastSevenDays = getPastSevenDays();
+
+console.log(pastSevenDays)
+//
+
+let today = new Date();
+let diffTimeArray = [];
+
+for(let i = 0; i < 7; i++) {
+    let currentDate = new Date(today);
+    currentDate.setDate(today.getDate() - i)
+
+    let foundData = test.find(obj => {
+    let arrivalDate = new Date(obj.arrival_time);
+    return arrivalDate.toDateString() === currentDate.toDateString();
+});
+
+    // データが見つかった場合は diff_time を配列に格納、見つからない場合は 0 を格納
+    if (foundData) {
+        // unshiftで先頭からデーターを挿入
+        diffTimeArray.unshift(foundData.diff_time);
+    } else {
+        diffTimeArray.unshift(0);
+    }
+}
+console.log(diffTimeArray);
 
 // グラフの設定を含むオブジェクトを定義する
 const lineConfig = {
     type: 'line', // グラフの種類を指定する（この場合は折れ線グラフ）
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: pastSevenDays,
         datasets: [{
             label: 'My Dataset',
-            data: [, test[0].diff_time,test[0].diff_time ,test[0].diff_time , 9, 55, 40],
+            data: diffTimeArray,
             borderColor: 'rgb(75, 192, 192)',
         }]
     },

@@ -40,52 +40,9 @@
             <div class="py-1 max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white shadow-md rounded-lg p-6 mb-6  max-w-7xl">
                     {{-- 変数をLaravelから渡す class --}}
-                    {{-- <x-trend :records="$records"/> --}}
+                    <x-trend :records="$seven_date_record"/>
                 </div>
             </div>
-
-            <script>
-                let dataObject = [
-                    { arrival_time: "2024-03-20 10:33:00", diff_time: 100 },
-                    { arrival_time: "2024-03-21 10:33:00", diff_time: 360 },
-                    { arrival_time: "2024-03-22 08:15:00", diff_time: 250 },
-                    { arrival_time: "2024-03-23 14:20:00", diff_time: 150 },
-                    { arrival_time: "2024-03-24 12:45:00", diff_time: 480 },
-                    { arrival_time: "2024-03-25 12:45:00", diff_time: 430 },
-                    { arrival_time: "2024-03-26 12:45:00", diff_time: 420 },
-                    { arrival_time: "2024-03-27 12:45:00", diff_time: 280 },
-                    { arrival_time: "2024-03-28 12:45:00", diff_time: 280 },
-                    // 他のオブジェクトも追加する場合はここに追加
-                ];
-
-                let today = new Date();
-
-                let sevenDaysLater = new Date();
-                sevenDaysLater.setDate(today.getDate() -7 );
-
-                let diffTimeArray = [];
-
-                for(let i = 0; i < 7; i++) {
-                    let currentDate = new Date(today);
-                    currentDate.setDate(today.getDate() - i)
-
-                    let foundData = dataObject.find(obj => {
-                    let arrivalDate = new Date(obj.arrival_time);
-                    return arrivalDate.toDateString() === currentDate.toDateString();
-                         });
-
-
-                    // データが見つかった場合は diff_time を配列に格納、見つからない場合は 0 を格納
-                    if (foundData) {
-                        diffTimeArray.push(foundData.diff_time);
-                    } else {
-                        diffTimeArray.push(0);
-                    }
-                }
-                console.log(diffTimeArray);
-
-
-            </script>
             {{--  --}}
 
             @foreach ($records as $commuteRecord)

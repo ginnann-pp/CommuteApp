@@ -3,7 +3,6 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use Illuminate\View\View;
 
 class Trend extends Component
 {
@@ -18,5 +17,4 @@ class Trend extends Component
     {
         return view('components.trend');
     }
-
 }
