@@ -7,7 +7,14 @@ const lineCtx = document.getElementById('myLineChart').getContext('2d');
 
 // このデーターを渡したい
 let test =@json($records);
-// ↓の代わりに↑のデータを最終的には挿入
+// 要素割る60
+test = test.map(obj => {
+    return{...obj, diff_time: obj.diff_time / 60};
+})
+
+console.log(test); // 結果を出力
+
+// 日付作成
 function getPastSevenDays() {
     let DateArray = [];
     for (let i = 0; i < 7; i++) {
@@ -55,9 +62,10 @@ const lineConfig = {
     data: {
         labels: pastSevenDays,
         datasets: [{
-            label: 'My Dataset',
+            label: '7日間の通勤時間',
             data: diffTimeArray,
             borderColor: 'rgb(75, 192, 192)',
+            animation: false,
         }]
     },
     options: {
