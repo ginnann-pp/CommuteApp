@@ -64,13 +64,10 @@ const lineConfig = {
         datasets: [{
             label: '7日間の通勤時間',
             data: diffTimeArray,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: 'orange',
             animation: false,
         }]
     },
-    options: {
-        // グラフのオプションを指定する（例：軸の設定、タイトルの設定など）
-    }
 };
 
 // Chart.jsを使用して折れ線グラフを描画する
