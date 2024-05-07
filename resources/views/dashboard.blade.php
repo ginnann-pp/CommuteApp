@@ -21,13 +21,13 @@
 
     <div class="flex  mx-32 mt-4">
         <div class="left w-1/4">
-            <div class="bg-white shadow-md rounded-lg p-6 max-w-7xl flex flex-col items-center justify-center">
-                <div class=" h-40 w-40 bg-blue-500 rounded-full"></div>
-                <div class="border-b border-gray-500 w-full mb-4 mt-4"></div>
-                <ul>
-                    <li>最速時間: 40Hr</li>
-                    <li>最長時間: 55Hr</li>
-                </ul>
+            <div class="py-1 max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white shadow-md rounded-lg p-6 mb-6  max-w-7xl">
+                    <ul>
+                        <li>最速時間</li>
+                        <li>最速時間</li>
+                    </ul>
+                </div>
             </div>
         </div>
 

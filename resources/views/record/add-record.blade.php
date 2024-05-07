@@ -53,9 +53,12 @@
                 @enderror
                 <div class="mb-4">
                     <label for="weather" class="block text-sm font-medium text-gray-700">天気</label>
-                    <input type="text" name="weather" id="weather" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm">
+                    <select name="weather" id="weather" class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm">
+                        <option >晴れ</option>
+                        <option >曇り</option>
+                        <option >雨</option>
+                    </select>
                 </div>
-
                 <div class="flex justify-end">
                     <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         投稿する

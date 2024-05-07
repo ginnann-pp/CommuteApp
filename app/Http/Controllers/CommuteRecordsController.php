@@ -14,7 +14,7 @@ class CommuteRecordsController extends Controller
     public function dashboard()
     {
         $user_id = auth()->id();
-        $user_record = CommuteRecords::where('user_id', $user_id)->get();
+        $user_record = CommuteRecords::where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
 
         $seven_Datas_Ago = Carbon::now()->subDays(7);
         $seven_date_record = CommuteRecords::where('created_at', '>=', $seven_Datas_Ago)->get();
